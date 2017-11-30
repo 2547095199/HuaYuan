@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
+/*
+这是flowlayout的如果一行里放不下一个东西的时候就会直接换行
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     FlowLayout flowLayout;
