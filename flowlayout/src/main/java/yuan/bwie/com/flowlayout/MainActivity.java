@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /*
@@ -25,10 +26,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     int length;
+    private CustomstView customstView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        customstView = (CustomstView) findViewById(R.id.customview);
+
         length = texts.length;
         flowLayout = (FlowLayout) findViewById(R.id.flowlayout);
         findViewById(R.id.btn_add_random).setOnClickListener(this);
@@ -36,6 +42,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_remove_all).setOnClickListener(this);
         findViewById(R.id.btn_relayout2).setOnClickListener(this);
         findViewById(R.id.btn_specify_line).setOnClickListener(this);
+
+
+        customstView.setSubmitClick(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.fanhui:
+                        finish();
+                        break;
+                    case R.id.tijiao:
+                        Toast.makeText(MainActivity.this, "提交", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
     }
 
     @Override
@@ -49,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tv.setPadding(dip2px(this, 15), 0, dip2px(this, 15), 0);
                 tv.setTextColor(Color.parseColor("#FF3030"));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                int index = (int)(Math.random() * length);
+                int index = (int) (Math.random() * length);
                 tv.setText(texts[index]);
                 tv.setGravity(Gravity.CENTER_VERTICAL);
                 tv.setLines(1);
@@ -77,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
+
     public static int px2dip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);

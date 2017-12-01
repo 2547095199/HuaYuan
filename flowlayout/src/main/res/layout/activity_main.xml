@@ -1,79 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
-    <ScrollView
+    <yuan.bwie.com.flowlayout.CustomstView
+        android:id="@+id/customview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></yuan.bwie.com.flowlayout.CustomstView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <yuan.bwie.com.flowlayout.FlowLayout
-            android:id="@+id/flowlayout"
+        <ScrollView
+            android:id="@+id/scrollview"
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <yuan.bwie.com.flowlayout.FlowLayout
+                android:id="@+id/flowlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F0F0F0"
+                android:paddingLeft="-10dp"
+                android:paddingRight="-10dp"
+                app:lineSpacing="10dp"
+                app:maxLine="3">
+
+            </yuan.bwie.com.flowlayout.FlowLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/btn_add_random"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="-10dp"
-            android:paddingRight="-10dp"
-            app:lineSpacing="10dp"
-            app:maxLine="3"
-            android:background="#F0F0F0">
+            android:layout_alignParentBottom="true"
+            android:background="#48a0a3"
+            android:padding="10dp"
+            android:text="add"
+            android:textAllCaps="false"/>
 
-        </yuan.bwie.com.flowlayout.FlowLayout>
-    </ScrollView>
+        <TextView
+            android:id="@+id/btn_remove_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_add_random"
+            android:background="#48a0a3"
+            android:padding="10dp"
+            android:text="clean"
+            android:textAllCaps="false"/>
 
-    <TextView
-        android:id="@+id/btn_add_random"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="add"
-        android:padding="10dp"
-        android:background="#48a0a3"
-        android:layout_alignParentBottom="true"/>
-    <TextView
-        android:id="@+id/btn_remove_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/btn_add_random"
-        android:textAllCaps="false"
-        android:text="clean"
-        android:padding="10dp"
-        android:background="#48a0a3"
-        android:layout_marginLeft="5dp"
-        android:layout_alignParentBottom="true"/>
-    <TextView
-        android:id="@+id/btn_relayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/btn_remove_all"
-        android:textAllCaps="false"
-        android:text="compress"
-        android:padding="10dp"
-        android:background="#48a0a3"
-        android:layout_marginLeft="5dp"
-        android:layout_alignParentBottom="true"/>
-    <TextView
-        android:id="@+id/btn_relayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/btn_relayout1"
-        android:textAllCaps="false"
-        android:text="align"
-        android:padding="10dp"
-        android:background="#48a0a3"
-        android:layout_marginLeft="5dp"
-        android:layout_alignParentBottom="true"/>
-    <TextView
-        android:id="@+id/btn_specify_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/btn_relayout2"
-        android:textAllCaps="false"
-        android:text="line=3"
-        android:padding="10dp"
-        android:background="#48a0a3"
-        android:layout_marginLeft="5dp"
-        android:layout_alignParentBottom="true"/>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/btn_relayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_remove_all"
+            android:background="#48a0a3"
+            android:padding="10dp"
+            android:text="compress"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/btn_relayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_relayout1"
+            android:background="#48a0a3"
+            android:padding="10dp"
+            android:text="align"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/btn_specify_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/btn_relayout2"
+            android:background="#48a0a3"
+            android:padding="10dp"
+            android:text="line=3"
+            android:textAllCaps="false"/>
+    </RelativeLayout>
+
+</LinearLayout>
